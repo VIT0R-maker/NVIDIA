@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Garuz - Camisetas 100% Algodão, Estampa DTF Premium, Modelagem Slim Fit. Estilo, Conforto e Propósito. Compre direto na Shopee com 24% OFF.">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>GARUZ | Estilo, Conforto e Propósito | 24% OFF Hoje</title>
+    
+    <!-- Tailwind CSS via CDN + Config Customizada -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        // Paleta Garuz: Dark Mode First
+                        'garuz-bg': '#0f0f1a',
+                        'garuz-surface': '#1a1a2e',
+                        'garuz-card': '#23233b',
+                        'garuz-border': '#2e2e4a',
+                        'garuz-gold': '#d4a843',      // Dourado Premium (CTA/Accents)
+                        'garuz-gold-hover': '#e8c05a',
+                        'garuz-text': '#f0f0f5',
+                        'garuz-text-muted': '#a0a0b8',
+                        // Light Mode Overrides
+                        'light-bg': '#fafafa',
+                        'light-surface': '#ffffff',
+                        'light-card': '#f5f5f5',
+                        'light-border': '#e0e0e0',
+                        'light-text': '#1a1a2e',
+                        'light-text-muted': '#555566',
+                    },
+                    fontFamily: {
+                        'display': ['"Space Grotesk"', 'sans-serif'], // Modern, geometric
+                        'body': ['"Inter"', 'sans-serif'],           // Clean, readable
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-gold': 'linear-gradient(135deg, #d4a843 0%, #f0d47a 50%, #d4a843 100%)',
+                        'gradient-dark': 'linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS (Critical & Utilities) -->
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+        
+        body { font-family: 'Inter', sans-serif; background-color: #0f0f1a; color: #f0f0f5; transition: background-color 0.4s ease, color 0.4s ease; overflow-x: hidden; }
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+        /* Theme Transitions */
+        .theme-transition { transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, fill 0.4s ease, stroke 0.4s ease; }
+
+        /* Scroll Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+        .reveal-delay-3 { transition-delay: 300ms; }
+        .reveal-delay-4 { transition-delay: 400ms; }
+
+        /* Hero Parallax / Float */
+        .hero-img-wrapper { perspective: 1000px; }
+        .hero-img { transition: transform 0.1s ease-out; will-change: transform; }
+
+        /* Carousel */
+        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); touch-action: pan-y; }
+        .carousel-slide { flex: 0 0 100%; min-width: 0; padding: 0 0.5rem; }
+        @media (min-width: 640px) { .carousel-slide { flex: 0 0 50%; } }
+        @media (min-width: 1024px) { .carousel-slide { flex: 0 0 33.333%; } }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0f0f1a; }
+        .light ::-webkit-scrollbar-track { background: #f0f0f0; }
+        ::-webkit-scrollbar-thumb { background: #d4a843; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e8c05a; }
+
+        /* Focus Visible for Accessibility */
+        :focus:not(:focus-visible) { outline: none; }
+        :focus-visible { outline: 2px solid #d4a843; outline-offset: 2px; border-radius: 2px; }
+
+        /* Button Shimmer Effect */
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 2.5s infinite; }
+
+        /* Size Guide Modal/Image Zoom */
+        .size-guide-img { cursor: zoom-in; transition: transform 0.3s ease; }
+        .size-guide-img:hover { transform: scale(1.02); }
+
+        /* Footer Link Hover */
+        .footer-link { position: relative; }
+        .footer-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #d4a843; transition: width 0.3s ease; }
+        .footer-link:hover::after { width: 100%; }
+    </style>
+</head>
+
+<body class="bg-garuz-bg text-garuz-text antialiased selection:bg-garuz-gold selection:text-garuz-bg">
+
+    <!-- ==========================================
+         HEADER / NAVBAR
+         ========================================== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 theme-transition bg-garuz-bg/80 backdrop-blur-xl border-b border-garuz-border dark:border-garuz-border light:border-light-border">
+        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Navegação principal">
+            <div class="flex h-16 items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="font-display font-bold text-xl sm:text-2xl tracking-tight text-garuz-gold hover:opacity-80 transition-opacity" aria-label="Garuz - Página Inicial">
+                    GARUZ
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex md:items-center md:gap-8">
+                    <a href="#catalogo" class="text-garuz-text-muted hover:text-garuz-gold transition-colors text-sm font-medium">Catálogo</a>
+                    <a href="#qualidades" class="text-garuz-text-muted hover:text-garuz-gold transition-colors text-sm font-medium">Qualidade</a>
+                    <a href="#tamanhos" class="text-garuz-text-muted hover:text-garuz-gold transition-colors text-sm font-medium">Tamanhos</a>
+                    <a href="#sobre" class="text-garuz-text-muted hover:text-garuz-gold transition-colors text-sm font-medium">Nossa História</a>
+                </div>
+
+                <!-- Actions: Theme Toggle + CTA -->
+                <div class="flex items-center gap-4">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" type="button" class="p-2 rounded-lg bg-garuz-card hover:bg-garuz-border transition-colors text-garuz-text" aria-label="Alternar modo escuro/claro" aria-pressed="false">
+                        <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                        <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                    </button>
+
+                    <!-- Header CTA (Desktop) -->
+                    <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-garuz-gold to-yellow-600 text-garuz-bg font-display font-semibold rounded-full shadow-lg shadow-garuz-gold/30 hover:shadow-garuz-gold/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 btn-shimmer">
+                        <span>Comprar na Shopee</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg bg-garuz-card hover:bg-garuz-border transition-colors text-garuz-text" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg id="menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <svg id="menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Panel -->
+            <div id="mobile-menu" class="md:hidden hidden overflow-hidden bg-garuz-bg border-t border-garuz-border" role="navigation" aria-label="Menu mobile">
+                <div class="px-4 py-4 space-y-3">
+                    <a href="#catalogo" class="block px-3 py-2 rounded-lg text-garuz-text-muted hover:bg-garuz-card hover:text-garuz-gold transition-colors font-medium">Catálogo</a>
+                    <a href="#qualidades" class="block px-3 py-2 rounded-lg text-garuz-text-muted hover:bg-garuz-card hover:text-garuz-gold transition-colors font-medium">Qualidade</a>
+                    <a href="#tamanhos" class="block px-3 py-2 rounded-lg text-garuz-text-muted hover:bg-garuz-card hover:text-garuz-gold transition-colors font-medium">Tamanhos</a>
+                    <a href="#sobre" class="block px-3 py-2 rounded-lg text-garuz-text-muted hover:bg-garuz-card hover:text-garuz-gold transition-colors font-medium">Nossa História</a>
+                    <hr class="border-garuz-border my-2">
+                    <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-5 py-3 bg-gradient-to-r from-garuz-gold to-yellow-600 text-garuz-bg font-display font-semibold rounded-full shadow-lg shadow-garuz-gold/30 btn-shimmer">Comprar na Shopee</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==========================================
+         FLOATING CTA (Mobile Only)
+         ========================================== -->
+    <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" id="floating-cta" class="fixed bottom-6 right-6 z-40 md:hidden flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-garuz-gold to-yellow-600 text-garuz-bg font-display font-semibold rounded-full shadow-xl shadow-garuz-gold/40 animate-pulse-slow hover:scale-105 active:scale-95 transition-transform duration-200 btn-shimmer" aria-label="Comprar na Shopee - Oferta Especial">
+        <i class="fa-solid fa-tag text-lg"></i>
+        <span class="hidden sm:inline">R$ 41,80</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+
+    <main id="main-content">
+
+        <!-- ==========================================
+             HERO SECTION (DOBRA 1)
+             ========================================== -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center pt-16 pb-20 px-4 overflow-hidden bg-gradient-dark dark:from-garuz-bg dark:to-garuz-surface light:from-light-bg light:to-light-surface">
+            
+            <!-- Background Decoration -->
+            <div class="absolute inset-0 -z-10 opacity-5" aria-hidden="true">
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-garuz-gold rounded-full blur-3xl animate-float"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+            </div>
+
+            <div class="mx-auto max-w-7xl w-full">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    
+                    <!-- Text Content (Left) -->
+                    <div class="text-center lg:text-left reveal">
+                        <!-- Badge Scarcity -->
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-garuz-gold/10 border border-garuz-gold/30 text-garuz-gold text-sm font-semibold mb-6 reveal delay-1" role="status" aria-live="polite">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-garuz-gold opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-garuz-gold"></span>
+                            </span>
+                            <span>ÚLTIMAS PEÇAS COM 24% OFF — ESTOQUE LIMITADO</span>
+                        </div>
+
+                        <!-- Headline -->
+                        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-garuz-text mb-6 reveal delay-2">
+                            Estilo, Conforto <br class="hidden sm:block"/> <span class="bg-gradient-to-r from-garuz-gold to-yellow-300 bg-clip-text text-transparent">e Propósito.</span>
+                        </h1>
+
+                        <!-- Subheadline -->
+                        <p class="text-lg sm:text-xl text-garuz-text-muted max-w-xl mx-auto lg:mx-0 mb-10 reveal delay-3 leading-relaxed">
+                            Camisetas 100% Algodão premium, estampa DTF de alta durabilidade e modelagem Slim Fit pensada para o seu dia a dia. Qualidade que você sente, preço que cabe no bolso.
+                        </p>
+
+                        <!-- Price Anchor & CTA Group -->
+                        <div class="flex flex-col sm:flex-row items-center sm:items-baseline justify-center lg:justify-start gap-4 mb-10 reveal delay-4">
+                            <div class="text-right sm:text-left">
+                                <p class="text-garuz-text-muted text-sm line-through">De R$ 55,00</p>
+                                <p class="font-display text-4xl sm:text-5xl font-bold text-garuz-gold leading-none">R$ 41,80</p>
+                                <p class="text-sm font-semibold text-green-400 mt-1">24% OFF + Frete Grátis* <span class="text-garuz-text-muted font-normal">(via Shopee)</span></p>
+                            </div>
+                            <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-garuz-gold to-yellow-600 text-garuz-bg font-display font-bold text-lg rounded-full shadow-xl shadow-garuz-gold/40 hover:shadow-garuz-gold/60 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 btn-shimmer group">
+                                <span>Garantir Meus Modelos</span>
+                                <i class="fa-solid fa-rocket group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+
+                        <!-- Trust Signals -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-garuz-text-muted reveal delay-4">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-truck-fast text-garuz-gold"></i> Envio Rápido Shopee</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-shield-check text-garuz-gold"></i> Compra Segura</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-rotate-left text-garuz-gold"></i> Troca Fácil</div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Content (Right) -->
+                    <div class="relative reveal delay-2 hero-img-wrapper">
+                        <!-- Main Model Image -->
+                        <div class="relative aspect-[3/4] lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 bg-garuz-card border border-garuz-border">
+                            <img 
+                                src="WhatsApp Image 2026-05-19 at 18.51.56.jpeg" 
+                                alt="Modelo vestindo camiseta Garuz preta com estampa exclusiva, demonstrando caimento Slim Fit" 
+                                class="hero-img w-full h-full object-cover transform hover:scale-[1.02] transition-transform duration-700"
+                                loading="eager"
+                                fetchpriority="high"
+                            >
+                            <!-- Corner Accents -->
+                            <div class="absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-garuz-gold"></div>
+                            <div class="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-garuz-gold"></div>
+                        </div>
+
+                        <!-- Secondary Model Image (Peek) -->
+                        <div class="absolute bottom-0 right-0 w-3/4 md:w-1/2 aspect-square rounded-3xl overflow-hidden shadow-xl shadow-black/50 bg-garuz-card border border-garuz-border transform rotate-3 transition-transform duration-500 hover:rotate-0 hover:z-10">
+                            <img 
+                                src="WhatsApp Image 2026-05-19 at 18.54.00.jpeg" 
+                                alt="Segundo modelo vestindo camiseta Garuz branca, detalhe da estampa nas costas" 
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            >
+                        </div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -top-4 -right-4 md:-top-6 md:-right-6 bg-garuz-gold text-garuz-bg px-4 py-2 rounded-full font-display font-bold text-lg shadow-lg animate-pulse-slow whitespace-nowrap">
+                            BEST SELLER
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-garuz-text-muted animate-bounce" aria-hidden="true">
+                <span class="text-xs uppercase tracking-widest font-medium">Role para descobrir</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CATÁLOGO / CARROSSEL DE PRODUTOS
+             ========================================== -->
+        <section id="catalogo" class="py-20 sm:py-28 lg:py-32 px-4 bg-garuz-surface dark:bg-garuz-surface light:bg-light-surface theme-transition">
+            <div class="mx-auto max-w-7xl">
+                <!-- Section Header -->
+                <header class="text-center max-w-2xl mx-auto mb-16 reveal">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest text-garuz-gold bg-garuz-gold/10 rounded-full mb-4">Coleção Atual</span>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-garuz-text mb-4">Escolha sua Identidade</h2>
+                    <p class="text-garuz-text-muted text-lg">Estampas exclusivas e a básica perfeita. Toque no card para ver detalhes.</p>
+                </header>
+
+                <!-- Carousel Container -->
+                <div class="relative" role="region" aria-label="Carrossel de produtos Garuz">
+                    <div id="carousel-track" class="carousel-track" style="--slide-width: 100%;">
+                        
+                        <!-- Product Card Component (Repeated via JS/Data) -->
+                        <!-- Card 1: Estampa 3.jpg -->
+                        <article class="carousel-slide reveal" data-index="0">
+                            <div class="product-card h-full group theme-transition bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:border-garuz-gold/50 transition-all duration-500 flex flex-col">
+                                <div class="relative aspect-square overflow-hidden bg-garuz-bg">
+                                    <img src="3.jpg" alt="Camiseta Garuz Estampa 3 - Design exclusivo frontal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-garuz-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex justify-center">
+                                        <button class="view-details-btn px-4 py-2 bg-garuz-gold text-garuz-bg font-semibold rounded-full text-sm shadow-lg hover:bg-garuz-gold-hover transition" data-name="Estampa 03" data-price="41,80" data-img="3.jpg" aria-label="Ver detalhes Estampa 03">Ver Detalhes</button>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-1">
+                                    <h3 class="font-display font-bold text-lg text-garuz-text mb-1">Estampa Exclusiva #03</h3>
+                                    <p class="text-garuz-text-muted text-sm mb-3 flex-1">Arte autoral, toque zero na estampa.</p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-garuz-border">
+                                        <span class="font-display text-xl font-bold text-garuz-gold">R$ 41,80</span>
+                                        <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-garuz-gold hover:underline flex items-center gap-1">Comprar <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2: Estampa 4.jpg -->
+                        <article class="carousel-slide reveal" data-index="1">
+                            <div class="product-card h-full group theme-transition bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:border-garuz-gold/50 transition-all duration-500 flex flex-col">
+                                <div class="relative aspect-square overflow-hidden bg-garuz-bg">
+                                    <img src="4.jpg" alt="Camiseta Garuz Estampa 4 - Design exclusivo frontal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-garuz-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex justify-center">
+                                        <button class="view-details-btn px-4 py-2 bg-garuz-gold text-garuz-bg font-semibold rounded-full text-sm shadow-lg hover:bg-garuz-gold-hover transition" data-name="Estampa 04" data-price="41,80" data-img="4.jpg" aria-label="Ver detalhes Estampa 04">Ver Detalhes</button>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-1">
+                                    <h3 class="font-display font-bold text-lg text-garuz-text mb-1">Estampa Exclusiva #04</h3>
+                                    <p class="text-garuz-text-muted text-sm mb-3 flex-1">Alta definição de cores, não desbota.</p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-garuz-border">
+                                        <span class="font-display text-xl font-bold text-garuz-gold">R$ 41,80</span>
+                                        <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-garuz-gold hover:underline flex items-center gap-1">Comprar <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3: Estampa 5.jpg -->
+                        <article class="carousel-slide reveal" data-index="2">
+                            <div class="product-card h-full group theme-transition bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:border-garuz-gold/50 transition-all duration-500 flex flex-col">
+                                <div class="relative aspect-square overflow-hidden bg-garuz-bg">
+                                    <img src="5.jpg" alt="Camiseta Garuz Estampa 5 - Design exclusivo frontal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-garuz-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex justify-center">
+                                        <button class="view-details-btn px-4 py-2 bg-garuz-gold text-garuz-bg font-semibold rounded-full text-sm shadow-lg hover:bg-garuz-gold-hover transition" data-name="Estampa 05" data-price="41,80" data-img="5.jpg" aria-label="Ver detalhes Estampa 05">Ver Detalhes</button>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-1">
+                                    <h3 class="font-display font-bold text-lg text-garuz-text mb-1">Estampa Exclusiva #05</h3>
+                                    <p class="text-garuz-text-muted text-sm mb-3 flex-1">Conceito minimalista, máximo impacto.</p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-garuz-border">
+                                        <span class="font-display text-xl font-bold text-garuz-gold">R$ 41,80</span>
+                                        <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-garuz-gold hover:underline flex items-center gap-1">Comprar <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4: Estampa 6.jpg -->
+                        <article class="carousel-slide reveal" data-index="3">
+                            <div class="product-card h-full group theme-transition bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:border-garuz-gold/50 transition-all duration-500 flex flex-col">
+                                <div class="relative aspect-square overflow-hidden bg-garuz-bg">
+                                    <img src="6.jpg" alt="Camiseta Garuz Estampa 6 - Design exclusivo frontal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-garuz-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex justify-center">
+                                        <button class="view-details-btn px-4 py-2 bg-garuz-gold text-garuz-bg font-semibold rounded-full text-sm shadow-lg hover:bg-garuz-gold-hover transition" data-name="Estampa 06" data-price="41,80" data-img="6.jpg" aria-label="Ver detalhes Estampa 06">Ver Detalhes</button>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-1">
+                                    <h3 class="font-display font-bold text-lg text-garuz-text mb-1">Estampa Exclusiva #06</h3>
+                                    <p class="text-garuz-text-muted text-sm mb-3 flex-1">Durabilidade extrema lavagem após lavagem.</p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-garuz-border">
+                                        <span class="font-display text-xl font-bold text-garuz-gold">R$ 41,80</span>
+                                        <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-garuz-gold hover:underline flex items-center gap-1">Comprar <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 5: Estampa 7.jpg -->
+                        <article class="carousel-slide reveal" data-index="4">
+                            <div class="product-card h-full group theme-transition bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:border-garuz-gold/50 transition-all duration-500 flex flex-col">
+                                <div class="relative aspect-square overflow-hidden bg-garuz-bg">
+                                    <img src="7.jpg" alt="Camiseta Garuz Estampa 7 - Design exclusivo frontal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-garuz-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex justify-center">
+                                        <button class="view-details-btn px-4 py-2 bg-garuz-gold text-garuz-bg font-semibold rounded-full text-sm shadow-lg hover:bg-garuz-gold-hover transition" data-name="Estampa 07" data-price="41,80" data-img="7.jpg" aria-label="Ver detalhes Estampa 07">Ver Detalhes</button>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-1">
+                                    <h3 class="font-display font-bold text-lg text-garuz-text mb-1">Estampa Exclusiva #07</h3>
+                                    <p class="text-garuz-text-muted text-sm mb-3 flex-1">O toque final do seu look streetwear.</p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-garuz-border">
+                                        <span class="font-display text-xl font-bold text-garuz-gold">R$ 41,80</span>
+                                        <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-garuz-gold hover:underline flex items-center gap-1">Comprar <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 6: Básica Frente (34 (8).jpg) -->
+                        <article class="carousel-slide reveal" data-index="5">
+                            <div class="product-card h-full group theme-transition bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:border-garuz-gold/50 transition-all duration-500 flex flex-col">
+                                <div class="relative aspect-square overflow-hidden bg-garuz-bg">
+                                    <img src="34 (8).jpg" alt="Camiseta Garuz Básica Preta - Frente com Logo Garuz bordado/estampado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-garuz-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex justify-center">
+                                        <button class="view-details-btn px-4 py-2 bg-garuz-gold text-garuz-bg font-semibold rounded-full text-sm shadow-lg hover:bg-garuz-gold-hover transition" data-name="Básica Logo Frontal" data-price="41,80" data-img="34 (8).jpg" aria-label="Ver detalhes Básica Logo Frontal">Ver Detalhes</button>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-1">
+                                    <h3 class="font-display font-bold text-lg text-garuz-text mb-1">Garuz Essential <span class="text-garuz-gold font-normal">(Frente)</span></h3>
+                                    <p class="text-garuz-text-muted text-sm mb-3 flex-1">Logo minimalista. O básico elevado.</p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-garuz-border">
+                                        <span class="font-display text-xl font-bold text-garuz-gold">R$ 41,80</span>
+                                        <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-garuz-gold hover:underline flex items-center gap-1">Comprar <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 7: Básica Costas (34 (7).jpg) -->
+                        <article class="carousel-slide reveal" data-index="6">
+                            <div class="product-card h-full group theme-transition bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:border-garuz-gold/50 transition-all duration-500 flex flex-col">
+                                <div class="relative aspect-square overflow-hidden bg-garuz-bg">
+                                    <img src="34 (7).jpg" alt="Camiseta Garuz Básica Preta - Costas com detalhe da marca" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-garuz-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex justify-center">
+                                        <button class="view-details-btn px-4 py-2 bg-garuz-gold text-garuz-bg font-semibold rounded-full text-sm shadow-lg hover:bg-garuz-gold-hover transition" data-name="Básica Logo Costas" data-price="41,80" data-img="34 (7).jpg" aria-label="Ver detalhes Básica Logo Costas">Ver Detalhes</button>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-1">
+                                    <h3 class="font-display font-bold text-lg text-garuz-text mb-1">Garuz Essential <span class="text-garuz-gold font-normal">(Costas)</span></h3>
+                                    <p class="text-garuz-text-muted text-sm mb-3 flex-1">Detalhe nas costas. Estilo 360°.</p>
+                                    <div class="flex items-center justify-between pt-3 border-t border-garuz-border">
+                                        <span class="font-display text-xl font-bold text-garuz-gold">R$ 41,80</span>
+                                        <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-garuz-gold hover:underline flex items-center gap-1">Comprar <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="flex justify-center items-center gap-4 mt-10">
+                        <button id="prev-btn" class="p-3 rounded-full bg-garuz-card border border-garuz-border text-garuz-text hover:bg-garuz-gold hover:text-garuz-bg hover:border-garuz-gold transition-all duration-300" aria-label="Produto anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div id="carousel-dots" class="flex gap-2" role="tablist" aria-label="Indicadores de slide"></div>
+                        <button id="next-btn" class="p-3 rounded-full bg-garuz-card border border-garuz-border text-garuz-text hover:bg-garuz-gold hover:text-garuz-bg hover:border-garuz-gold transition-all duration-300" aria-label="Próximo produto"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             QUALIDADES / CARACTERÍSTICAS
+             ========================================== -->
+        <section id="qualidades" class="py-20 sm:py-28 lg:py-32 px-4 bg-garuz-bg dark:bg-garuz-bg light:bg-light-bg theme-transition">
+            <div class="mx-auto max-w-7xl">
+                <header class="text-center max-w-2xl mx-auto mb-16 reveal">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest text-garuz-gold bg-garuz-gold/10 rounded-full mb-4">Por que Garuz?</span>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-garuz-text mb-4">Qualidade que Você Sente na Pele</h2>
+                    <p class="text-garuz-text-muted text-lg">Não vendemos apenas camisetas. Entregamos padrão premium em cada fio.</p>
+                </header>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Feature 1 -->
+                    <article class="reveal group p-6 bg-garuz-card border border-garuz-border rounded-2xl hover:border-garuz-gold/50 hover:shadow-lg hover:shadow-garuz-gold/10 transition-all duration-500 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-xl bg-garuz-gold/10 flex items-center justify-center mb-5 group-hover:bg-garuz-gold group-hover:text-garuz-bg transition-all duration-500">
+                            <i class="fa-solid fa-cotton-boll text-2xl text-garuz-gold group-hover:text-garuz-bg transition-colors"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-garuz-text mb-2">100% Algodão Premium</h3>
+                        <p class="text-garuz-text-muted text-sm leading-relaxed">Fio 30.1 penteado: toque macio, respirabilidade total e zero alergia. Conforto térmico o dia todo.</p>
+                    </article>
+
+                    <!-- Feature 2 -->
+                    <article class="reveal delay-1 group p-6 bg-garuz-card border border-garuz-border rounded-2xl hover:border-garuz-gold/50 hover:shadow-lg hover:shadow-garuz-gold/10 transition-all duration-500 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-xl bg-garuz-gold/10 flex items-center justify-center mb-5 group-hover:bg-garuz-gold group-hover:text-garuz-bg transition-all duration-500">
+                            <i class="fa-solid fa-spray-can-sparkles text-2xl text-garuz-gold group-hover:text-garuz-bg transition-colors"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-garuz-text mb-2">Estampa DTF Ultra HD</h3>
+                        <p class="text-garuz-text-muted text-sm leading-relaxed">Tecnologia Direct-to-Film: cores vibrantes, detalhes nítidos, elasticidade total e resistência a 50+ lavagens.</p>
+                    </article>
+
+                    <!-- Feature 3 -->
+                    <article class="reveal delay-2 group p-6 bg-garuz-card border border-garuz-border rounded-2xl hover:border-garuz-gold/50 hover:shadow-lg hover:shadow-garuz-gold/10 transition-all duration-500 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-xl bg-garuz-gold/10 flex items-center justify-center mb-5 group-hover:bg-garuz-gold group-hover:text-garuz-bg transition-all duration-500">
+                            <i class="fa-solid fa-shirt text-2xl text-garuz-gold group-hover:text-garuz-bg transition-colors"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-garuz-text mb-2">Modelagem Slim Fit Perfeita</h3>
+                        <p class="text-garuz-text-muted text-sm leading-relaxed">Corte ajustado ao corpo sem apertar. Ombro estruturado, manga no ponto certo. Valoriza qualquer biotipo.</p>
+                    </article>
+
+                    <!-- Feature 4 -->
+                    <article class="reveal delay-3 group p-6 bg-garuz-card border border-garuz-border rounded-2xl hover:border-garuz-gold/50 hover:shadow-lg hover:shadow-garuz-gold/10 transition-all duration-500 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-xl bg-garuz-gold/10 flex items-center justify-center mb-5 group-hover:bg-garuz-gold group-hover:text-garuz-bg transition-all duration-500">
+                            <i class="fa-solid fa-flag text-2xl text-garuz-gold group-hover:text-garuz-bg transition-colors"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-garuz-text mb-2">Produção Nacional Ética</h3>
+                        <p class="text-garuz-text-muted text-sm leading-relaxed">Feito no Brasil com mão de obra valorizada. Comprando Garuz, você fortalece a economia local.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             GUIA DE TAMANHOS (Redução de Atrito)
+             ========================================== -->
+        <section id="tamanhos" class="py-20 sm:py-28 lg:py-32 px-4 bg-garuz-surface dark:bg-garuz-surface light:bg-light-surface theme-transition">
+            <div class="mx-auto max-w-7xl">
+                <header class="text-center max-w-2xl mx-auto mb-12 reveal">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest text-garuz-gold bg-garuz-gold/10 rounded-full mb-4">Guia de Medidas</span>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-garuz-text mb-4">Acerte o Tamanho na Primeira Compra</h2>
+                    <p class="text-garuz-text-muted text-lg">Meça uma camiseta sua que veste bem e compare com nossa tabela. Elimine o medo de errar.</p>
+                </header>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
+                    <!-- Tabela de Medidas (Imagem) -->
+                    <div class="reveal relative">
+                        <div class="bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
+                            <img 
+                                id="size-chart-img" 
+                                src="34 (6).jpg" 
+                                alt="Tabela de medidas oficial Garuz: P, M, G, GG com largura, comprimento e manga em centímetros" 
+                                class="size-guide-img w-full h-full object-cover"
+                                loading="lazy"
+                            >
+                        </div>
+                        <p class="text-center text-xs text-garuz-text-muted mt-3">Toque/Clique na imagem para ampliar</p>
+                    </div>
+
+                    <!-- Dicas de Medição -->
+                    <div class="reveal delay-1 space-y-6">
+                        <div class="bg-garuz-card border border-garuz-border rounded-2xl p-6">
+                            <h3 class="font-display text-xl font-bold text-garuz-text mb-4 flex items-center gap-3"><i class="fa-solid fa-tape text-garuz-gold text-2xl"></i> Como Medir em Casa</h3>
+                            <div class="space-y-4 text-garuz-text-muted text-sm leading-relaxed">
+                                <div class="flex gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-garuz-gold/10 flex items-center justify-center text-garuz-gold font-bold text-sm">1</div><p>Pegue uma camiseta sua <strong>que vista perfeitamente</strong> (não use seu corpo nu).</p></div>
+                                <div class="flex gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-garuz-gold/10 flex items-center justify-center text-garuz-gold font-bold text-sm">2</div><p>Estique-a sobre uma superfície plana (cama/mesa). Alise bem as rugas.</p></div>
+                                <div class="flex gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-garuz-gold/10 flex items-center justify-center text-garuz-gold font-bold text-sm">3</div><p>Meça a <strong>LARGURA</strong> (axila a axila) e o <strong>COMPRIMENTO</strong> (gola até a barra).</p></div>
+                                <div class="flex gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-garuz-gold/10 flex items-center justify-center text-garuz-gold font-bold text-sm">4</div><p>Compare com a tabela ao lado. Se ficar entre dois tamanhos, <strong>recomendamos o maior</strong> para conforto Slim Fit.</p></div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Size Reference Cards -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-garuz-card border border-garuz-border rounded-xl p-4 text-center reveal">
+                                <p class="text-xs text-garuz-text-muted uppercase tracking-wide">Tamanho P</p>
+                                <p class="font-display text-2xl font-bold text-garuz-gold">~50cm Larg.</p>
+                                <p class="text-xs text-garuz-text-muted">Até 1,70m / 70kg</p>
+                            </div>
+                            <div class="bg-garuz-card border border-garuz-border rounded-xl p-4 text-center reveal">
+                                <p class="text-xs text-garuz-text-muted uppercase tracking-wide">Tamanho M</p>
+                                <p class="font-display text-2xl font-bold text-garuz-gold">~52cm Larg.</p>
+                                <p class="text-xs text-garuz-text-muted">Até 1,78m / 80kg</p>
+                            </div>
+                            <div class="bg-garuz-card border border-garuz-border rounded-xl p-4 text-center reveal">
+                                <p class="text-xs text-garuz-text-muted uppercase tracking-wide">Tamanho G</p>
+                                <p class="font-display text-2xl font-bold text-garuz-gold">~54cm Larg.</p>
+                                <p class="text-xs text-garuz-text-muted">Até 1,85m / 90kg</p>
+                            </div>
+                            <div class="bg-garuz-card border border-garuz-border rounded-xl p-4 text-center reveal">
+                                <p class="text-xs text-garuz-text-muted uppercase tracking-wide">Tamanho GG</p>
+                                <p class="font-display text-2xl font-bold text-garuz-gold">~56cm Larg.</p>
+                                <p class="text-xs text-garuz-text-muted">Acima de 1,85m / 95kg</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PROVA SOCIAL / SOBRE A MARCA
+             ========================================== -->
+        <section id="sobre" class="py-20 sm:py-28 lg:py-32 px-4 bg-garuz-bg dark:bg-garuz-bg light:bg-light-bg theme-transition">
+            <div class="mx-auto max-w-7xl">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <!-- Story Content -->
+                    <div class="reveal">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest text-garuz-gold bg-garuz-gold/10 rounded-full mb-4">Nossa Essência</span>
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-garuz-text mb-6">Mais que Roupas. <span class="text-garuz-gold">Atitude.</span></h2>
+                        <div class="prose prose-invert max-w-none text-garuz-text-muted leading-relaxed space-y-4">
+                            <p>A <strong>Garuz</strong> nasceu da frustração de comprar camisetas que deformavam na primeira lavagem, estampas que rachavam ou modelagens que não vestiam ninguém direito.</p>
+                            <p>Decidimos fazer o óbvio bem feito: <strong>algodão nobre, estampa que não sai, corte que valoriza.</strong> Sem firulas, sem marketing vazio. Apenas produto honesto, preço justo e entrega rápida pela Shopee.</p>
+                            <p>Cada peça sai do nosso estoque direto para sua casa com a certeza de quem veste a própria marca no dia a dia.</p>
+                        </div>
+                        
+                        <!-- Founder/Signature -->
+                        <div class="mt-10 flex items-center gap-4 p-4 bg-garuz-card border border-garuz-border rounded-xl">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-garuz-gold to-yellow-600 flex items-center justify-center text-garuz-bg font-display font-bold text-xl">VF</div>
+                            <div>
+                                <p class="font-semibold text-garuz-text">Vitor Faccini & Gabriel Rodrigues</p>
+                                <p class="text-sm text-garuz-text-muted">Fundadores — Garuz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Proof / Stats -->
+                    <div class="reveal delay-1 grid grid-cols-2 gap-6">
+                        <!-- Stat 1 -->
+                        <div class="bg-garuz-card border border-garuz-border rounded-2xl p-8 text-center hover:border-garuz-gold/50 transition-colors">
+                            <div class="font-display text-4xl sm:text-5xl font-bold text-garuz-gold mb-2" data-count="5000">0</div>
+                            <div class="text-garuz-text-muted text-sm uppercase tracking-wide">Peças Entregues</div>
+                        </div>
+                        <!-- Stat 2 -->
+                        <div class="bg-garuz-card border border-garuz-border rounded-2xl p-8 text-center hover:border-garuz-gold/50 transition-colors">
+                            <div class="font-display text-4xl sm:text-5xl font-bold text-garuz-gold mb-2" data-count="4.9">0.0</div>
+                            <div class="text-garuz-text-muted text-sm uppercase tracking-wide">Avaliação Shopee <i class="fa-solid fa-star text-yellow-400 ml-1"></i></div>
+                        </div>
+                        <!-- Stat 3 -->
+                        <div class="bg-garuz-card border border-garuz-border rounded-2xl p-8 text-center hover:border-garuz-gold/50 transition-colors">
+                            <div class="font-display text-4xl sm:text-5xl font-bold text-garuz-gold mb-2" data-count="100">0</div>
+                            <div class="text-garuz-text-muted text-sm uppercase tracking-wide">% Algodão Premium</div>
+                        </div>
+                        <!-- Stat 4 -->
+                        <div class="bg-garuz-card border border-garuz-border rounded-2xl p-8 text-center hover:border-garuz-gold/50 transition-colors">
+                            <div class="font-display text-4xl sm:text-5xl font-bold text-garuz-gold mb-2">24<span class="text-lg">h</span></div>
+                            <div class="text-garuz-text-muted text-sm uppercase tracking-wide">Envio Imediato</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             FINAL CTA SECTION (Urgency/Scarcity)
+             ========================================== -->
+        <section class="py-20 sm:py-28 px-4 bg-gradient-to-b from-garuz-surface to-garuz-bg dark:from-garuz-surface dark:to-garuz-bg light:from-light-surface light:to-light-bg theme-transition relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5" aria-hidden="true">
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-garuz-gold/20 to-transparent"></div>
+            </div>
+            <div class="mx-auto max-w-3xl relative text-center z-10 reveal">
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-garuz-text mb-4">O Estoque Não Volta.</h2>
+                <p class="text-lg text-garuz-text-muted mb-8 max-w-lg mx-auto">Produzimos em lotes pequenos para garantir qualidade. O lote atual está no fim. Garanta o seu antes que acabe e o preço suba no próximo.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                    <div class="flex items-center justify-center gap-6 text-garuz-text-muted text-sm">
+                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-garuz-gold"></i> Frete Grátis*</div>
+                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-garuz-gold"></i> 1ª Troca Grátis</div>
+                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-garuz-gold"></i> Pagamento Seguro</div>
+                    </div>
+                </div>
+
+                <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-garuz-gold to-yellow-600 text-garuz-bg font-display font-bold text-xl rounded-full shadow-2xl shadow-garuz-gold/50 hover:shadow-garuz-gold/70 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 btn-shimmer group">
+                    <i class="fa-solid fa-bolt text-xl"></i>
+                    <span>QUERO MINHA GARUZ COM 24% OFF</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                
+                <p class="mt-6 text-xs text-garuz-text-muted">*Consulte condições de frete grátis na Shopee para sua região.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         FOOTER (Obrigatório com Contatos)
+         ========================================== -->
+    <footer id="contato" class="bg-garuz-bg border-t border-garuz-border dark:border-garuz-border light:border-light-border theme-transition">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Brand Column -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="font-display font-bold text-2xl text-garuz-gold mb-4 block">GARUZ</a>
+                    <p class="text-garuz-text-muted text-sm leading-relaxed mb-6">Camisetas premium 100% algodão, estampa DTF durável e modelagem Slim Fit. Feito no Brasil com propósito.</p>
+                    <div class="flex gap-4">
+                        <a href="https://shopee.com.br/garuz" target="_blank" rel="noopener noreferrer" class="text-garuz-text-muted hover:text-garuz-gold transition-colors" aria-label="Shopee"><i class="fa-brands fa-shopee text-xl"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-garuz-text-muted hover:text-garuz-gold transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="text-garuz-text-muted hover:text-garuz-gold transition-colors" aria-label="TikTok"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                        <a href="mailto:vitorfaccini93@gmail.com" class="text-garuz-text-muted hover:text-garuz-gold transition-colors" aria-label="E-mail"><i class="fa-solid fa-envelope text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <nav class="reveal" aria-label="Links rápidos">
+                    <h3 class="font-display font-semibold text-garuz-text mb-4">Navegação</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#catalogo" class="footer-link text-garuz-text-muted hover:text-garuz-gold transition-colors">Catálogo de Estampas</a></li>
+                        <li><a href="#qualidades" class="footer-link text-garuz-text-muted hover:text-garuz-gold transition-colors">Qualidade & Tecidos</a></li>
+                        <li><a href="#tamanhos" class="footer-link text-garuz-text-muted hover:text-garuz-gold transition-colors">Guia de Tamanhos</a></li>
+                        <li><a href="#sobre" class="footer-link text-garuz-text-muted hover:text-garuz-gold transition-colors">Nossa História</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Support / Contact - Vendedor 1 -->
+                <div class="reveal">
+                    <h3 class="font-display font-semibold text-garuz-text mb-4">Atendimento - Vitor</h9191-8520</a></div>
+                        <p class="text-xs text-garuz-text-muted/50 mt-2">Horário: Seg-Sex 9h-18h</p>
+                    </address>
+                </div>
+
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="mt-12 pt-8 border-t border-garuz-border flex flex-col md:flex-row items-center justify-between gap-4 reveal">
+                <p class="text-sm text-garuz-text-muted text-center md:text-left">
+                    &copy; 2026 <span class="font-display font-bold text-garuz-gold">GARUZ</span>. Todos os direitos reservados.
+                </p>
+                <div class="flex items-center gap-6 text-xs text-garuz-text-muted text-center md:text-right">
+                    <a href="#" class="footer-link hover:text-garuz-gold transition-colors">Política de Privacidade</a>
+                    <a href="#" class="footer-link hover:text-garuz-gold transition-colors">Termos de Uso</a>
+                    <a href="#" class="footer-link hover:text-garuz-gold transition-colors">Trocas e Devoluções</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         MODAL ZOOM IMAGE (Tabela de Medidas)
+         ========================================== -->
+    <div id="image-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-label="Tabela de medidas ampliada" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;">
+        <button id="modal-close" class="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors" aria-label="Fechar ampliação"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button id="modal-prev" class="absolute left-6 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white hidden md:block transition-colors" aria-label="Imagem anterior"><i class="fa-solid fa-chevron-left text-xl"></i></button>
+        <button id="modal-next" class="absolute right-6 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white hidden md:block transition-colors" aria-label="Próxima imagem"><i class="fa-solid fa-chevron-right text-xl"></i></button>
+        
+        <div class="relative max-w-4xl w-full max-h-[90vh]">
+            <img id="modal-img" src="" alt="" class="w-full h-auto object-contain rounded-lg shadow-2xl" style="transform: scale(0.9); transition: transform 0.3s ease;">
+        </div>
+        
+        <!-- Mobile Swipe Hint -->
+        <p class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/50 md:hidden">Deslize para navegar</p>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT PURO (Toda Interatividade)
+         ========================================== -->
+    <script>
+        // ==========================================
+        // 1. ESTADO GLOBAL & UTILITÁRIOS
+        // ==========================================
+        const STATE = {
+            theme: 'dark', // 'dark' | 'light'
+            carouselIndex: 0,
+            carouselSlides: [],
+            isDragging: false,
+            startX: 0,
+            currentTranslate: 0,
+            prevTranslate: 0,
+            animationID: 0,
+            modalImages: [
+                "34 (6).jpg", // Tabela de medidas
+                "34 (8).jpg", // Frente básica
+                "34 (7).jpg"  // Costas básica
+            ],
+            modalCurrentIndex: 0
+        };
+
+        const $ = (sel, ctx = document) => ctx.querySelector(sel);
+        const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+        const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+        // ==========================================
+        // 2. TEMA (DARK/LIGHT) - Persistência LocalStorage
+        // ==========================================
+        function initTheme() {
+            const saved = localStorage.getItem('garuz-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            STATE.theme = saved || (prefersDark ? 'dark' : 'light');
+            applyTheme();
+        }
+
+        function applyTheme() {
+            const html = document.documentElement;
+            if (STATE.theme === 'light') {
+                html.classList.add('light');
+                $('#icon-sun')?.classList.add('hidden');
+                $('#icon-moon')?.classList.remove('hidden');
+                $('#theme-toggle')?.setAttribute('aria-pressed', 'true');
+            } else {
+                html.classList.remove('light');
+                $('#icon-sun')?.classList.remove('hidden');
+                $('#icon-moon')?.classList.add('hidden');
+                $('#theme-toggle')?.setAttribute('aria-pressed', 'false');
+            }
+            localStorage.setItem('garuz-theme', STATE.theme);
+        }
+
+        $('#theme-toggle')?.addEventListener('click', () => {
+            STATE.theme = STATE.theme === 'dark' ? 'light' : 'dark';
+            applyTheme();
+        });
+
+        // ==========================================
+        // 3. MENU MOBILE
+        // ==========================================
+        const mobileBtn = $('#mobile-menu-btn');
+        const mobileMenu = $('#mobile-menu');
+        const menuOpenIcon = $('#menu-open');
+        const menuCloseIcon = $('#menu-close');
+
+        mobileBtn?.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('hidden');
+            mobileBtn.setAttribute('aria-expanded', !isOpen);
+            menuOpenIcon.classList.toggle('hidden', !isOpen);
+            menuCloseIcon.classList.toggle('hidden', isOpen);
+            document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+
+        // Fechar menu ao clicar link
+        $$('#mobile-menu a').forEach(link => link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+            menuOpenIcon.classList.remove('hidden');
+            menuCloseIcon.classList.add('hidden');
+            document.body.style.overflow = '';
+        }));
+
+        // ==========================================
+        // 4. SCROLL REVEAL (IntersectionObserver)
+        // ==========================================
+        function initScrollReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Unobserve after animation to save perf
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+
+            $$('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // ==========================================
+        // 5. CARROSSEL (Touch/Swipe + Buttons + Dots + Keyboard)
+        // ==========================================
+        function initCarousel() {
+            const track = $('#carousel-track');
+            const slides = $$('.carousel-slide', track);
+            const prevBtn = $('#prev-btn');
+            const nextBtn = $('#next-btn');
+            const dotsContainer = $('#carousel-dots');
+            STATE.carouselSlides = slides;
+
+            if (!track || slides.length === 0) return;
+
+            // Create Dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-garuz-gold w-6' : 'bg-garuz-border'}`;
+                dot.setAttribute('role', 'tab');
+                dot.setAttribute('aria-label', `Ir para slide ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            function updateCarousel() {
+                const slideWidth = slides[0].offsetWidth + 16; // slide + gap (1rem = 16px)
+                track.style.transform = `translateX(${-STATE.carouselIndex * slideWidth}px)`;
+
+                // Update Dots
+                $$('button', dotsContainer).forEach((dot, i) => {
+                    dot.classList.toggle('bg-garuz-gold', i === STATE.carouselIndex);
+                    dot.classList.toggle('w-6', i === STATE.carouselIndex);
+                    dot.classList.toggle('bg-garuz-border', i !== STATE.carouselIndex);
+                    dot.setAttribute('aria-selected', i === STATE.carouselIndex);
+                });
+
+                // Button States
+                prevBtn.disabled = STATE.carouselIndex === 0;
+                nextBtn.disabled = STATE.carouselIndex >= slides.length - getVisibleSlides();
+                prevBtn.classList.toggle('opacity-50', prevBtn.disabled);
+                nextBtn.classList.toggle('opacity-50', nextBtn.disabled);
+                prevBtn.classList.toggle('pointer-events-none', prevBtn.disabled);
+                nextBtn.classList.toggle('pointer-events-none', nextBtn.disabled);
+            }
+
+            function getVisibleSlides() {
+                if (window.innerWidth >= 1024) return 3;
+                if (window.innerWidth >= 640) return 2;
+                return 1;
+            }
+
+            function goToSlide(index) {
+                const maxIndex = slides.length - getVisibleSlides();
+                STATE.carouselIndex = clamp(index, 0, maxIndex);
+                updateCarousel();
+            }
+
+            // Buttons
+            prevBtn?.addEventListener('click', () => goToSlide(STATE.carouselIndex - 1));
+            nextBtn?.addEventListener('click', () => goToSlide(STATE.carouselIndex + 1));
+
+            // Keyboard
+            track.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') goToSlide(STATE.carouselIndex - 1);
+                if (e.key === 'ArrowRight') goToSlide(STATE.carouselIndex + 1);
+            });
+
+            // Touch / Mouse Drag
+            const getPositionX = (e) => e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+
+            const startDrag = (e) => {
+                if (e.type === 'mousedown' && e.button !== 0) return; // Only left click
+                STATE.isDragging = true;
+                STATE.startX = getPositionX(e);
+                STATE.prevTranslate = -STATE.carouselIndex * (slides[0].offsetWidth + 16);
+                track.style.transition = 'none';
+                track.style.cursor = 'grabbing';
+                // Pause auto-play if any
+            };
+
+            const drag = (e) => {
+                if (!STATE.isDragging) return;
+                e.preventDefault();
+                const currentX = getPositionX(e);
+                const diff = currentX - STATE.startX;
+                STATE.currentTranslate = STATE.prevTranslate + diff;
+                track.style.transform = `translateX(${STATE.currentTranslate}px)`;
+            };
+
+            const endDrag = () => {
+                if (!STATE.isDragging) return;
+                STATE.isDragging = false;
+                track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                track.style.cursor = 'grab';
+
+                const slideWidth = slides[0].offsetWidth + 16;
+                const movedBy = STATE.currentTranslate - STATE.prevTranslate;
+                
+                // Threshold: 20% of slide width
+                if (Math.abs(movedBy) > slideWidth * 0.2) {
+                    if (movedBy < 0) goToSlide(STATE.carouselIndex + 1);
+                    else goToSlide(STATE.carouselIndex - 1);
+                } else {
+                    goToSlide(STATE.carouselIndex); // Snap back
+                }
+            };
+
+            // Mouse Events
+            track.addEventListener('mousedown', startDrag);
+            window.addEventListener('mousemove', drag);
+            window.addEventListener('mouseup', endDrag);
+            track.addEventListener('mouseleave', endDrag);
+
+            // Touch Events
+            track.addEventListener('touchstart', startDrag, { passive: true });
+            track.addEventListener('touchmove', drag, { passive: false });
+            track.addEventListener('touchend', endDrag);
+
+            // Resize Recalc
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    updateCarousel();
+                }, 100);
+            });
+
+            // Initial
+            updateCarousel();
+        }
+
+        // ==========================================
+        // 6. CONTADORES ANIMADOS (Sobre a Marca)
+        // ==========================================
+        function initCounters() {
+            const counters = $$('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseFloat(el.dataset.target);
+                        const isDecimal = target % 1 !== 0;
+                        const duration = 2000;
+                        const startTime = performance.now();
+
+                        const animate = (currentTime) => {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            // Easing: easeOutExpo
+                            const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                            const current = target * eased;
+                            el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString('pt-BR');
+                            if (progress < 1) requestAnimationFrame(animate);
+                        };
+                        requestAnimationFrame(animate);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(c => observer.observe(c));
+        }
+
+        // ==========================================
+        // 7. MODAL ZOOM IMAGE (Tabela de Medidas + Gallery)
+        // ==========================================
+        function initImageModal() {
+            const modal = $('#image-modal');
+            const modalImg = $('#modal-img');
+            const closeBtn = $('#modal-close');
+            const prevBtn = $('#modal-prev');
+            const nextBtn = $('#modal-next');
+            const triggerImg = $('#size-chart-img'); // Main trigger
+
+            // Open from Size Chart
+            triggerImg?.addEventListener('click', () => openModal(0));
+
+            // Open from Product Cards (View Details Buttons)
+            $$('.view-details-btn').forEach((btn, idx) => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent card click
+                    // Map button index to modalImages array if needed, 
+                    // for simplicity we open the specific image clicked or default to size chart.
+                    // Here we open the specific product image in modal.
+                    const imgSrc = btn.dataset.img;
+                    openModalCustom(imgSrc, btn.dataset.name);
+                });
+            });
+
+            function openModal(index) {
+                STATE.modalCurrentIndex = index;
+                modalImg.src = STATE.modalImages[index];
+                modalImg.alt = `Imagem ${index + 1} ampliada`;
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                updateModalNav();
+            }
+
+            function openModalCustom(src, altText) {
+                modalImg.src = src;
+                modalImg.alt = altText;
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                // Hide nav for single custom images
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+                // Reset nav visibility
+                prevBtn.style.display = '';
+                nextBtn.style.display = '';
+            }
+
+            function navigate(dir) {
+                STATE.modalCurrentIndex = (STATE.modalCurrentIndex + dir + STATE.modalImages.length) % STATE.modalImages.length;
+                modalImg.src = STATE.modalImages[STATE.modalCurrentIndex];
+                updateModalNav();
+            }
+
+            function updateModalNav() {
+                // Only show nav if multiple images in gallery mode
+                const show = STATE.modalImages.length > 1;
+                prevBtn.style.display = show ? 'block' : 'none';
+                nextBtn.style.display = show ? 'block' : 'none';
+            }
+
+            closeBtn?.addEventListener('click', closeModal);
+            prevBtn?.addEventListener('click', () => navigate(-1));
+            nextBtn?.addEventListener('click', () => navigate(1));
+
+            // Close on backdrop click
+            modal?.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Keyboard
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('open')) return;
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') navigate(-1);
+                if (e.key === 'ArrowRight') navigate(1);
+            });
+
+            // Touch Swipe Modal
+            let touchStartX = 0;
+            modalImg.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+            modalImg.addEventListener('touchend', (e) => {
+                const diff = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(diff) > 50) navigate(diff > 0 ? -1 : 1);
+            });
+        }
+
+        // ==========================================
+        // 8. HERO PARALLAX (Mouse Move / Gyro)
+        // ==========================================
+        function initHeroParallax() {
+            const wrapper = $('.hero-img-wrapper');
+            const img = $('.hero-img');
+            if (!wrapper || !img) return;
+
+            wrapper.addEventListener('mousemove', (e) => {
+                const rect = wrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const moveX = (x - centerX) / 20; // Max 15px
+                const moveY = (y - centerY) / 20;
+                img.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+            });
+
+            wrapper.addEventListener('mouseleave', () => {
+                img.style.transform = 'translate(0, 0) scale(1)';
+            });
+        }
+
+        // ==========================================
+        // 9. HEADER SCROLL EFFECT (Blur/Shadow)
+        // ==========================================
+        function initHeaderScroll() {
+            const header = $('#header');
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.scrollY;
+                if (currentScroll > 50) {
+                    header.classList.add('bg-garuz-bg/95', 'shadow-xl');
+                    header.classList.remove('bg-garuz-bg/80');
+                } else {
+                    header.classList.remove('bg-garuz-bg/95', 'shadow-xl');
+                    header.classList.add('bg-garuz-bg/80');
+                }
+                lastScroll = currentScroll;
+            }, { passive: true });
+        }
+
+        // ==========================================
+        // 10. SMOOTH SCROLL OFFSET (Header Height)
+        // ==========================================
+        function initSmoothScrollOffset() {
+            $$('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = $(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const headerHeight = $('#header')?.offsetHeight || 0;
+                        const targetPos = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // ==========================================
+        // 11. INICIALIZAÇÃO GERAL
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initScrollReveal();
+            initCarousel();
+            initCounters();
+            initImageModal();
+            initHeroParallax();
+            initHeaderScroll();
+            initSmoothScrollOffset();
+
+            // Preload critical images (Hero + Size Chart)
+            ['WhatsApp Image 2026-05-19 at 18.51.56.jpeg', 'WhatsApp Image 2026-05-19 at 18.54.00.jpeg', '34 (6).jpg'].forEach(src => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            });
+
+            console.log('%c🚀 GARUZ Landing Page Loaded', 'color: #d4a843; font-size: 14px; font-weight: bold;');
+        });
+
+        // Service Worker Registration (Optional PWA Ready)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // navigator.serviceWorker.register('/sw.js').catch(() => {}); // Uncomment if you add SW
+            });
+        }
+    </script>
+</body>
+</html>
+
