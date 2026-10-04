@@ -532,7 +532,7 @@
                         <div class="bg-garuz-card border border-garuz-border rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                             <img 
                                 id="size-chart-img" 
-                                src="34 (6).jpg" 
+                                src="12.svg" 
                                 alt="Tabela de medidas oficial Garuz: P, M, G, GG com largura, comprimento e manga em centímetros" 
                                 class="size-guide-img w-full h-full object-cover"
                                 loading="lazy"
@@ -697,7 +697,9 @@
 
                 <!-- Support / Contact - Vendedor 1 -->
                 <div class="reveal">
-                    <h3 class="font-display font-semibold text-garuz-text mb-4">Atendimento - Vitor</h9191-8520</a></div>
+                    <h3 class="font-display font-semibold text-garuz-text mb-4">Atendimento - Vitor</h3>
+                    <address class="not-italic text-sm text-garuz-text-muted space-y-3">
+                        <div class="flex items-center gap-3"><i class="fa-brands fa-whatsapp text-garuz-gold text-lg"></i> <a href="#" class="hover:text-garuz-gold transition-colors">9191-8520</a></div>
                         <p class="text-xs text-garuz-text-muted/50 mt-2">Horário: Seg-Sex 9h-18h</p>
                     </address>
                 </div>
@@ -751,7 +753,7 @@
             prevTranslate: 0,
             animationID: 0,
             modalImages: [
-                "34 (6).jpg", // Tabela de medidas
+                "12.svg", // Tabela de medidas atualizada
                 "34 (8).jpg", // Frente básica
                 "34 (7).jpg"  // Costas básica
             ],
@@ -1114,42 +1116,53 @@
         }
 
         // ==========================================
-        // 9. HEADER SCROLL EFFECT (Blur/Shadow)
-        // ==========================================
-        function initHeaderScroll() {
-            const header = $('#header');
-            let lastScroll = 0;
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.scrollY;
-                if (currentScroll > 50) {
-                    header.classList.add('bg-garuz-bg/95', 'shadow-xl');
-                    header.classList.remove('bg-garuz-bg/80');
-                } else {
-                    header.classList.remove('bg-garuz-bg/95', 'shadow-xl');
-                    header.classList.add('bg-garuz-bg/80');
-                }
-                lastScroll = currentScroll;
-            }, { passive: true });
-        }
+// 9. HEADER SCROLL EFFECT (Blur/Shadow)
+// ==========================================
+function initHeaderScroll() {
+    const header = $('#header');
+    
+    // Trava de segurança: impede erro no console caso o ID mude ou não seja encontrado
+    if (!header) return; 
 
-        // ==========================================
-        // 10. SMOOTH SCROLL OFFSET (Header Height)
-        // ==========================================
-        function initSmoothScrollOffset() {
-            $$('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    const target = $(targetId);
-                    if (target) {
-                        e.preventDefault();
-                        const headerHeight = $('#header')?.offsetHeight || 0;
-                        const targetPos = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-                        window.scrollTo({ top: targetPos, behavior: 'smooth' });
-                    }
-                });
-            });
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        if (currentScroll > 50) {
+            header.classList.add('bg-garuz-bg/95', 'shadow-xl');
+            header.classList.remove('bg-garuz-bg/80');
+        } else {
+            header.classList.remove('bg-garuz-bg/95', 'shadow-xl');
+            header.classList.add('bg-garuz-bg/80');
         }
+    }, { passive: true });
+}
+
+// ==========================================
+// 10. SMOOTH SCROLL OFFSET (Header Height)
+// ==========================================
+function initSmoothScrollOffset() {
+    $$('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const target = $(targetId);
+            if (target) {
+                e.preventDefault();
+                
+                // Garante que o header exista antes de tentar pegar o offsetHeight
+                const headerNode = $('#header');
+                const headerHeight = headerNode ? headerNode.offsetHeight : 0;
+                
+                const targetPos = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                
+                window.scrollTo({ 
+                    top: targetPos, 
+                    behavior: 'smooth' 
+                });
+            }
+        });
+    });
+}
 
         // ==========================================
         // 11. INICIALIZAÇÃO GERAL
@@ -1164,8 +1177,8 @@
             initHeaderScroll();
             initSmoothScrollOffset();
 
-            // Preload critical images (Hero + Size Chart)
-            ['WhatsApp Image 2026-05-19 at 18.51.56.jpeg', 'WhatsApp Image 2026-05-19 at 18.54.00.jpeg', '34 (6).jpg'].forEach(src => {
+            // Preload critical images (Hero + Size Chart updated)
+            ['WhatsApp Image 2026-05-19 at 18.51.56.jpeg', 'WhatsApp Image 2026-05-19 at 18.54.00.jpeg', '12.svg'].forEach(src => {
                 const link = document.createElement('link');
                 link.rel = 'preload';
                 link.as = 'image';
@@ -1185,4 +1198,3 @@
     </script>
 </body>
 </html>
-
